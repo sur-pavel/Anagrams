@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class MainTest {
+public class AnagramTest {
     private Anagram anagram = new Anagram();
 
     @Test
@@ -17,8 +17,8 @@ public class MainTest {
 
     @Test
     public void testEscapedChars() {
-        String input = "a1^bcd efg!h";
-        String expected = "d1^cba hgf!e";
+        String input = "a1@#'DD^bcd efg!h";
+        String expected = "d1@#'cb^DDa hgf!e";
         assertThat(anagram.reverseString(input), is(expected));
     }
 }
