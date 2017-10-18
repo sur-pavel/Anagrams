@@ -1,16 +1,24 @@
 package ru.sur_pavel;
 
+import org.junit.Test;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 public class MainTest {
-    @org.junit.Test
-    public void testReverseMethod() throws Exception {
+    private Anagram anagram = new Anagram();
 
-        Main main = new Main();
+    @Test
+    public void testReverseMethod()  {
         String input = "a1bcd efg!h";
         String expected = "d1cba hgf!e";
-        assertThat(main.reverseString(input), is(expected));
+        assertThat(anagram.reverseString(input), is(expected));
     }
 
+    @Test
+    public void testEscapedChars() {
+        String input = "a1^bcd efg!h";
+        String expected = "d1^cba hgf!e";
+        assertThat(anagram.reverseString(input), is(expected));
+    }
 }
